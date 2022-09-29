@@ -31,3 +31,13 @@ let cursorCoordinates = 12;
 console.log('cursorCoordinates', cursorCoordinates);
 
 
+const PI = 3.14;
+console.log('PI=', PI);
+
+let isUserStatus = 'online';
+if (isUserStatus) {
+    console.log('isUserStatus', true);
+    
+} else { 
+    console.log('isUserStatus', false);
+}
