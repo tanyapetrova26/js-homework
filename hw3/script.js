@@ -53,30 +53,35 @@
     const retireeMAX_AGE = 80;
     
 
-    // if (((visitorAge > teenagerMIN_AGE) &&  (visitorAge < teenagerMAX_AGE)) || 
-    //     ((visitorAge > retireeMIN_AGE) &&  (visitorAge < retireeMAX_AGE))) {
-    //         const isAdultPermission = confirm(`You have permission from an adult? `);
-    //        if (isAdultPermission) {
+    if (((visitorAge > teenagerMIN_AGE) 
+            &&  (visitorAge < teenagerMAX_AGE))
+            ||  ((visitorAge > retireeMIN_AGE) 
+            &&  (visitorAge < retireeMAX_AGE))) {
+
+         const isAdultPermission = confirm("You have permission from an adult? ");
+
+           if (isAdultPermission) {
+                alert("Welcome!");
+           } else {
+            alert("No entry");
+           }
+
+        } else if((visitorAge > teenagerMAX_AGE) && (visitorAge < retireeMIN_AGE)) {
+            alert("Welcome!");
             
-    //         alert(`Welcome!`);
-    //        } else{
-    //         alert(`No entry`);
-    //        }
-    //     } else if((visitorAge > teenagerMAX_AGE) && (visitorAge < retireeMIN_AGE)) {
-    //         alert(`Welcome!`);
-    //     } else {
-    //         alert(`No entry`);
-    //     }
+        } else {
+            alert("No entry");
+        }
     
-    if((visitorAge >= teenagerMAX_AGE) && (visitorAge <= retireeMIN_AGE)) {
-         alert(`Welcome!`);
-        } else if ((visitorAge < teenagerMIN_AGE) || (visitorAge > retireeMAX_AGE)) {
-            alert(`No entry`);
-            } else {
-                const isAdultPermission = confirm(`You have permission from an adult? `);
-                if (isAdultPermission) {
-                    alert(`Welcome!`);
-                } else {
-                    alert(`No entry`);
-                }
-            }
+    // if((visitorAge >= teenagerMAX_AGE) && (visitorAge <= retireeMIN_AGE)) {
+    //      alert("Welcome!");
+    //     } else if ((visitorAge < teenagerMIN_AGE) || (visitorAge > retireeMAX_AGE)) {
+    //         alert("No entry");
+    //         } else {
+    //             const isAdultPermission = confirm(`You have permission from an adult? `);
+    //             if (isAdultPermission) {
+    //                 alert("Welcome!");
+    //             } else {
+    //                 alert("No entry");
+    //             }
+    //         }
