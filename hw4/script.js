@@ -25,3 +25,21 @@ console.log('res1', res1);
 
 res1 = sum('4',25);
 console.log('res1', res1);
+
+
+// task 2
+
+function showGreeting() {
+    const userName = prompt ('What is your name?');
+    const userAge= Number(prompt ('How old are you?'));
+
+        if (userAge >= 30) {
+            alert(`Hello, ${userName}`);
+        } else if (userAge > 0){
+            alert(`Hi, ${userName}`);
+        } else {
+            alert("Data entry error");
+        }
+}
+
+showGreeting();
