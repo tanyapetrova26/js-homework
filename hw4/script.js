@@ -42,4 +42,22 @@ function showGreeting() {
         }
 }
 
-showGreeting();
+// showGreeting();
+
+
+// task 3
+
+function calcDegree(x, n = 2) {
+    let result = x;
+  
+    for (let i = 1; i < n; i++) {
+      result *= x;
+    }
+  
+    return result;
+  }
+ 
+
+  console.log('result', calcDegree(5,5));
+  console.log('result', calcDegree(6));
+  console.log('result', calcDegree(10,25));
