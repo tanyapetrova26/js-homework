@@ -22,6 +22,7 @@ const drawPiramed = (height) => {
 // drawPiramed(desiredHeight);
 
 
+
 const LOGIN = "ADMIN";
 const PASSWORD = "1q2w3e"
 
@@ -72,7 +73,39 @@ const authorise = () => {
       
 }
 
-authorise();
+// authorise();
 
+// Промежуток для вывода простых чисел
 
+function showPrimes(m, n) {
+
+    for (let i = m; i < n; i++) {
+      if (!isPrime(i)) continue;
+  
+      console.log(i);  
+    }
+  }
+  
+  function isPrime(n) {
+        if (n === 1 || n === 0) {
+                return false;
+            } else {
+                for (let i = 2; i < n; i++) {
+                    if ( n % i == 0) return false;
+            }
+            return true;
+        }
+    }
+
+  let startInterval = Number(prompt("Промежуток для вывода простых чисел, введите начальное число:"));
+  let endInterval = Number(prompt("Введите конечное число:"));
+
+  if(startInterval >= 0 && endInterval > startInterval) {
+    
+    showPrimes(startInterval, endInterval);
+    
+  } else {
+    alert("Данные не верны");
+  }
+  
 
