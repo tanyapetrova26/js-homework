@@ -34,7 +34,6 @@ const authorise = () => {
     let tryCounter = 0;
         
         do {
-            while(tryCounter < 3) {
                 userLogin = prompt("Логин: ");
                     if(!userLogin){
                     alert(`Введите логин, у вас осталось ${2 - tryCounter} попытки`);
@@ -51,29 +50,24 @@ const authorise = () => {
 
                 if(userLogin === LOGIN && userPassword === PASSWORD) {
                     isAuthSuccess = true;
-                    break;
+                    
                 } else {
                     alert(`Данные не верны, у вас осталось ${2 - tryCounter} попытки`);
                     tryCounter++;
                     continue;
                 }
-
-            }
-            
-        
-            if(tryCounter === 3){
-                alert("Ваши попытки закончились");
-                break;
-            } else {
-                alert("Welcame!");
-            }
            
-        } while(!isAuthSuccess);
+        } while(!isAuthSuccess && tryCounter < 3);
 
+        if(tryCounter === 3){
+            alert("Ваши попытки закончились");
+        } else {
+            alert("Welcame!");
+        }
       
 }
 
-// authorise();
+  authorise();
 
 // Промежуток для вывода простых чисел
 
@@ -97,8 +91,8 @@ function showPrimes(m, n) {
         }
     }
 
-  let startInterval = Number(prompt("Промежуток для вывода простых чисел, введите начальное число:"));
-  let endInterval = Number(prompt("Введите конечное число:"));
+//   let startInterval = Number(prompt("Промежуток для вывода простых чисел, введите начальное число:"));
+//   let endInterval = Number(prompt("Введите конечное число:"));
 
   if(startInterval >= 0 && endInterval > startInterval) {
     
