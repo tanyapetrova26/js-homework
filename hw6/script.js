@@ -83,6 +83,7 @@
 
 // регистрация пользователя
 
+
 function userRegistration() {
 
        let newUserName;
@@ -100,7 +101,7 @@ function userRegistration() {
                             
                      }
                     
-              newUserLastname = prompt('Фамилия:');
+               newUserLastName = prompt('Фамилия:');
                      if(!newUserLastName){
                             alert('Введите фамилию');
                             continue;
@@ -115,8 +116,11 @@ function userRegistration() {
                             continue;
               } else {
                      let UserPassword = checkPassword(newUserPassword);
-                     if(UserPassword) continue;
-                     else break;
+                     if(UserPassword) {
+                            continue;
+                     } else {
+                            break;
+                     }
               }
                             
                       
@@ -154,7 +158,7 @@ function userRegistration() {
        
        } while(!newUser);
 
-              alert(`${newUserName} ${newUserLastname} регистрация прошла успешно!`)
+              alert(`${newUserName} ${newUserLastName} регистрация прошла успешно!`)
 }
 
 userRegistration();
