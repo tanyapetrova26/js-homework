@@ -84,6 +84,87 @@
 // регистрация пользователя
 
 
+// function userRegistration() {
+
+//        let newUserName;
+//        let newUserLastName; 
+//        let newUserPassword;
+//        let newUser = false;
+
+//        do {
+//               newUserName = prompt('Имя:');
+//                      if(!newUserName){
+//                             alert('Введите имя');
+//                             continue;
+//                      } else {
+//                             newUserName = firstLetterToUppercase(newUserName);
+                            
+//                      }
+                    
+//                newUserLastName = prompt('Фамилия:');
+//                      if(!newUserLastName){
+//                             alert('Введите фамилию');
+//                             continue;
+//                      } else {
+//                             newUserLastName = firstLetterToUppercase(newUserLastName);
+//                      }
+              
+              
+//               newUserPassword = prompt('Введите пароль:');
+//                      if(!newUserPassword){
+//                             alert('Введите пароль');
+//                             continue;
+//               } else {
+//                      let UserPassword = checkPassword(newUserPassword);
+//                      if(UserPassword) {
+//                             continue;
+//                      } else {
+//                             break;
+//                      }
+//               }
+                            
+                      
+//                      function checkPassword (password) {
+//                             let upperCase = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; 
+//                             let lowerCase = 'qwertyuiopasdfghjklzxcvbnm';
+//                             let isUpperCase = false; 
+//                             let isLowerCase = false;
+
+//                             if(password.length < 6) {
+//                                    alert('Пароль должен содержать больше 6 символов');
+//                                    return true;
+//                             } else {
+//                                    for (let i = 0; i < password.length; i++) {
+//                                          if (!isUpperCase && upperCase.indexOf(password[i]) != -1) isUpperCase = true;
+//                                           else if (!isLowerCase && lowerCase.indexOf(password[i]) != -1) isLowerCase = true;
+//                                    }
+//                             }       
+//                             if(!isUpperCase){
+//                                 alert("Пароль должен содержать символы верхнего регистра");
+//                                 return true;
+//                             }else if(!isLowerCase){
+//                                 alert("Пароль должен содержать символы нижнего регистра");
+//                                 return true;
+//                             } else{
+//                                    return false;
+//                             } 
+                    
+//                      }
+
+//                      function firstLetterToUppercase(str) {
+//                             str = str.toLowerCase();
+//                             return str[0].toUpperCase() + str.slice(1);
+//                      }
+       
+//        } while(!newUser);
+
+//               alert(`${newUserName} ${newUserLastName} регистрация прошла успешно!`)
+// }
+
+// userRegistration();
+
+// регистрация пользователя 
+
 function userRegistration() {
 
        let newUserName;
@@ -116,7 +197,7 @@ function userRegistration() {
                             continue;
               } else {
                      let UserPassword = checkPassword(newUserPassword);
-                     if(UserPassword) {
+                     if(!UserPassword) {
                             continue;
                      } else {
                             break;
@@ -125,28 +206,17 @@ function userRegistration() {
                             
                       
                      function checkPassword (password) {
-                            let upperCase = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; 
-                            let lowerCase = 'qwertyuiopasdfghjklzxcvbnm';
-                            let isUpperCase = false; 
-                            let isLowerCase = false;
-
                             if(password.length < 6) {
                                    alert('Пароль должен содержать больше 6 символов');
-                                   return true;
-                            } else {
-                                   for (let i = 0; i < password.length; i++) {
-                                         if (!isUpperCase && upperCase.indexOf(password[i]) != -1) isUpperCase = true;
-                                          else if (!isLowerCase && lowerCase.indexOf(password[i]) != -1) isLowerCase = true;
-                                   }
-                            }       
-                            if(!isUpperCase){
-                                alert("Пароль должен содержать символы верхнего регистра");
-                                return true;
-                            }else if(!isLowerCase){
-                                alert("Пароль должен содержать символы нижнего регистра");
-                                return true;
-                            } else{
                                    return false;
+                            } else if(password == password.toLowerCase()){
+                                alert("Пароль должен содержать символы верхнего регистра");
+                                return false;
+                            } else if(password == password.toUpperCase()){
+                                alert("Пароль должен содержать символы нижнего регистра");
+                                return false;
+                            } else{
+                                   return true;
                             } 
                     
                      }
