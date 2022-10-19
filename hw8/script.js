@@ -91,25 +91,54 @@ function getOccurrencesCount(arr) {
     }
     return count;
 }
-    console.log(getOccurrencesCount(["a", "v", "a", "b", "b"]));
+    // console.log(getOccurrencesCount(["a", "v", "a", "b", "b"]));
 // {
 //   a: 2,
 //   v: 1,
 //   b: 2,
 // }
 
-console.log(getOccurrencesCount([
-    "apples",
-    "oranges",
-    "pears",
-    "pears",
-    "apples",
-    "oranges",
-    "oranges",
-    "pears",
-  ]));
+// console.log(getOccurrencesCount([
+//     "apples",
+//     "oranges",
+//     "pears",
+//     "pears",
+//     "apples",
+//     "oranges",
+//     "oranges",
+//     "pears",
+//   ]));
   // {
   //   apples: 2,
   //   oranges: 3,
   //   pears: 3,
   // }
+
+  // task 3
+
+  function findExcess(arr) {
+    let odd = undefined; 
+    let even = undefined;
+  
+    for (let numbers of arr) {
+      let isEven = numbers % 2 == 0;
+    
+      if (odd !== undefined && even !== undefined)
+        return isEven ? odd : even;
+         
+      if (isEven) {
+        even = numbers;
+        } else {
+          odd = numbers; 
+        }
+       
+    }
+     return arr[arr.length-1];
+  }
+      
+      
+  console.log(findExcess([0, 1, 2]));
+  console.log(findExcess([1, 2, 3]));
+  console.log(findExcess([2, 6, 8, 10, 3]));
+  console.log(findExcess([0, 0, 3, 0, 0]));
+  console.log(findExcess([1, 1, 0, 1, 1]));
