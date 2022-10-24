@@ -209,10 +209,13 @@ function userRegistration() {
                             if(password.length < 6) {
                                    alert('Пароль должен содержать больше 6 символов');
                                    return false;
-                            } else if(password == password.toLowerCase()){
+                            } else if(!isNaN(password)) {
+                                   alert("Пароль не может содержать цифры, введите символы");
+                                   return false;   
+                            } else if(password === password.toLowerCase()){
                                 alert("Пароль должен содержать символы верхнего регистра");
                                 return false;
-                            } else if(password == password.toUpperCase()){
+                            } else if(password === password.toUpperCase()){
                                 alert("Пароль должен содержать символы нижнего регистра");
                                 return false;
                             } else{

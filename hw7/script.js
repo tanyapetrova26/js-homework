@@ -15,14 +15,14 @@ function getSalariesTotal(salaries) {
     return total;
 }
 
-let totalRes = getSalariesTotal(salaries);
-console.log('totalRes', Math.trunc(totalRes * 100 ) / 100);
+// let totalRes = getSalariesTotal(salaries);
+// console.log('totalRes', Math.trunc(totalRes * 100 ) / 100);
 
-salaries.Neit = "2300.15";
-salaries.Klark = "5300.80";
+// salaries.Neit = "2300.15";
+// salaries.Klark = "5300.80";
 
-totalRes = getSalariesTotal(salaries);
-console.log('totalRes', Number(totalRes.toFixed(2)));
+// totalRes = getSalariesTotal(salaries);
+// console.log('totalRes', Number(totalRes.toFixed(2)));
 
 
 // расписание
@@ -48,7 +48,7 @@ do {
 
 }
 
-// showСhedule();
-// console.log(Chedule);
+showСhedule();
+console.log(Chedule);
 
 
