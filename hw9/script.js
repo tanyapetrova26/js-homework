@@ -112,9 +112,62 @@ const arithmeticMean = numbers.reduce((a,b) => (a + b)) / numbers.length;
 console.log('arithmeticMean', arithmeticMean);
 
 
+// task 2
+
+const isNegative = (number) => number < 0;
+const increment = (number) => number + 1;
+const logger = (element, index, array) => {
+  console.log(`In array [${array}] on position ${index}: ${element}`);
+};
+
+function ownForEach(arr, func) {
+    for( let i = 0; i < arr.length; i++){
+      func(arr[i], i, arr);
+    }
+}
+ownForEach([1, 2, 3], logger);
+
+function ownMap(array, fun) {
+
+  let res = [];
+  for( let i = 0; i < array.length; i++){
+
+    res[i] = fun(array[i]);
+
+  }
+
+  return res;
+}
+
+console.log(ownMap([1, 2, 3], increment)); // [2, 3, 4]
 
 
 
+function ownFilter(arrNumber, filtr) {
+
+  let result;
+  let resFilt = [];
+
+  for( let i = 0; i < arrNumber.length; i++){
+
+    result = filtr(arrNumber[i]);
+
+    if(result === true) {
+       resFilt.push(arrNumber[i]);
+    }
+    
+    continue;
+  }
+
+  return resFilt;
+
+}
+
+console.log(ownFilter([-2, 4, -1 ], isNegative)); // [-2, -1]
+
+
+
+// task 3
 
 const data = [
     {
