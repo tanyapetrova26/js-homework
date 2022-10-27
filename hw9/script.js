@@ -95,10 +95,16 @@ const users = [
   },
 ]
 
-const adultAdmins = users
+
+const yourFunction = (users) => users
 .filter(item => item.age > 18 && item.role === 'admin')
 .map(item => item.name);
 
+// const adultAdmins = users
+// .filter(item => item.age > 18 && item.role === 'admin')
+// .map(item => item.name);
+
+const adultAdmins = yourFunction(users);
 console.log('adultAdmins', adultAdmins);
 // const adultAdmins = yourFunction(users); // [Sam, Pablo]
 
@@ -120,20 +126,23 @@ const logger = (element, index, array) => {
   console.log(`In array [${array}] on position ${index}: ${element}`);
 };
 
-function ownForEach(arr, func) {
+function ownForEach(arr, logger) {
+
     for( let i = 0; i < arr.length; i++){
-      func(arr[i], i, arr);
+      logger(arr[i], i, arr);
     }
 }
+
 ownForEach([1, 2, 3], logger);
+
 
 function ownMap(array, fun) {
 
   let res = [];
-  for( let i = 0; i < array.length; i++){
 
-    res[i] = fun(array[i]);
+  for( let numbers of array){
 
+    res.push(fun(numbers));
   }
 
   return res;
@@ -145,21 +154,17 @@ console.log(ownMap([1, 2, 3], increment)); // [2, 3, 4]
 
 function ownFilter(arrNumber, filtr) {
 
-  let result;
-  let resFilt = [];
+  let result = [];
 
-  for( let i = 0; i < arrNumber.length; i++){
+  for( let item of arrNumber){
 
-    result = filtr(arrNumber[i]);
-
-    if(result === true) {
-       resFilt.push(arrNumber[i]);
+    if(filtr(item) === true) {
+      result.push(item);
     }
     
-    continue;
   }
 
-  return resFilt;
+  return result;
 
 }
 
@@ -221,8 +226,9 @@ const data = [
   ];
 
 
+  
 
-    
+//   filterData = (data) => data.filter((item )=> item.age === 23);  
 // console.log(filterData(data, { age: 23 }));
 
 
