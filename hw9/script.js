@@ -136,13 +136,13 @@ function ownForEach(arr, logger) {
 ownForEach([1, 2, 3], logger);
 
 
-function ownMap(array, fun) {
+function ownMap(array, increment) {
 
   let res = [];
 
   for( let numbers of array){
 
-    res.push(fun(numbers));
+    res.push(increment(numbers));
   }
 
   return res;
@@ -152,13 +152,13 @@ console.log(ownMap([1, 2, 3], increment)); // [2, 3, 4]
 
 
 
-function ownFilter(arrNumber, filtr) {
+function ownFilter(arrNumber, isNegative) {
 
   let result = [];
 
   for( let item of arrNumber){
 
-    if(filtr(item) === true) {
+    if(isNegative(item) === true) {
       result.push(item);
     }
     
