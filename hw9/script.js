@@ -55,7 +55,9 @@ const maskCreditCard = (cardNumber) => {
 
 const arrNumbers = [1, 2, -10, -2, 7];
 
-const booleanFromNumbers = arrNumbers.map(number => number > 0 ? true : false);
+// const booleanFromNumbers = arrNumbers.map(number => number > 0 ? true : false);
+
+const booleanFromNumbers = arrNumbers.map(number => number > 0);
 
 console.log('booleanFromNumbers', booleanFromNumbers);
 
@@ -100,11 +102,9 @@ const yourFunction = (users) => users
 .filter(item => item.age > 18 && item.role === 'admin')
 .map(item => item.name);
 
-// const adultAdmins = users
-// .filter(item => item.age > 18 && item.role === 'admin')
-// .map(item => item.name);
 
 const adultAdmins = yourFunction(users);
+
 console.log('adultAdmins', adultAdmins);
 // const adultAdmins = yourFunction(users); // [Sam, Pablo]
 
@@ -128,8 +128,12 @@ const logger = (element, index, array) => {
 
 function ownForEach(arr, logger) {
 
-    for( let i = 0; i < arr.length; i++){
-      logger(arr[i], i, arr);
+    // for( let i = 0; i < arr.length; i++){
+    //   logger(arr[i], i, arr);
+    // }
+
+    for( let item of arr){
+      logger(item, arr.indexOf(item), arr);
     }
 }
 
@@ -158,7 +162,7 @@ function ownFilter(arrNumber, isNegative) {
 
   for( let item of arrNumber){
 
-    if(isNegative(item) === true) {
+    if(isNegative(item)) {
       result.push(item);
     }
     
@@ -228,17 +232,50 @@ const data = [
 
   
 
-//   filterData = (data) => data.filter((item )=> item.age === 23);  
-// console.log(filterData(data, { age: 23 }));
+  // function filterData (arr, obj) {
+    
+  //    let result = arr.filter( person => {
 
+      
+  //         let k = Object.keys(obj);
+  //         console.log('k', k);
+          
+  //            let v = k.every(key => {
+  //             let e = person[key] === obj[key]
+
+  //             console.log('obj[key]', obj[key]);
+  //             console.log('person[key]', person[key]);
+  //             console.log('e', e);
+
+  //             return e;
+  //           } );
+
+  //           console.log('v', v);
+  //           return v;     
+      
+          
+  //   });
+  //   console.log('result', result);
+  //   return result;
+
+  // }    
+
+  function filterData (arr, obj) {
+    
+    return arr.filter( person => {
+         
+            return Object.keys(obj).every(key => {
+             return person[key] === obj[key]
+           });
+       
+   });
+   
+
+ }  
+console.log(filterData(data, { age: 23 }));
+
+console.log(filterData(data, { age: 24 }));
 
 // filterData = (data) => data.filter((item )=> item.age === 19 && item.position === "junior");
 
-// console.log(filterData(data, { age: 19, position: "junior" }));
- 
-
-  
-  
-  
- 
-  
+console.log(filterData(data, { age: 19, position: "junior" }));
