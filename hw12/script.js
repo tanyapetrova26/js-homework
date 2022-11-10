@@ -11,7 +11,7 @@ const createTooltip = (element, text) => {
 
     let coords = element.getBoundingClientRect();
     
-    tooltip.style.left = (coords.left + (tooltip.offsetWidth  - element.offsetWidth) / 2) + 'px';
+    tooltip.style.left = (coords.left + (element.offsetWidth  - tooltip.offsetWidth) / 2) + 'px';
     tooltip.style.top = (coords.top - tooltip.offsetHeight - 10) + 'px';
 
 }
