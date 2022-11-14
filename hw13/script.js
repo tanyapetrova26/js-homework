@@ -3,7 +3,6 @@ const prev = document.querySelector(".button_prev");
 const next = document.querySelector(".button_next");
 
 const slide = document.querySelectorAll(".slide_img, .slide_img-showing");
-
 let currentSlide = 0;
 
 
