@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .carusel {
+        position: relative;
+        width: 50%;
+        margin: auto;
+    }
+    
+    .slide {
+        display: flex;
+        margin-bottom: 20px;
+        width: 100%;
+        overflow: hidden;
+ }
+
+    .slide_img {
+        display: none;
+    }
+
+    .slide_img-showing{
+        display: block;
+}
+
+
+    .button {
+        width: 100px;
+        height: 40px;
+        background-color: darkslategrey;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+
+</style>
+
+    <title>hw13 slider</title>
+</head>
+<body>
+    <div class="carusel">
+        
+            <div class="slide">
+                
+                    <img class="slide_img-showing" src="./images/1.jpg" alt="1">
+                                
+                    <img class="slide_img" src="./images/2.jpg" alt="2">
+                
+                    <img class="slide_img" src="./images/3.jpg" alt="3">
+                
+                    <img class="slide_img" src="./images/4.jpg" alt="4">
+                
+            </div>
+       
+        <button class="button button_prev">PREV</button>
+        <button class="button button_next">NEXT</button>
+          
+    </div>  
+
+    <script src="./script.js"></script>
+</body>
+</html>
