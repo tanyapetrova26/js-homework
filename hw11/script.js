@@ -130,83 +130,64 @@ const products = [
 ];
 
 
-// const renderList = (arr) => {
-//   const listCard = document.createElement("ul");
-//   // const listProperties = document.createElement("ul");
+const renderList1 = (arr) => {
+
+  const listCard = document.createElement("div");
+
+  arr.forEach(item => {
+
+  const listCardTitle = document.createElement("h2");
+  const listCardSubTitle = document.createElement("h3");
+  const listProperties = document.createElement("ul");
+
+    item.properties.forEach(prop => {
+      const listItemProperties = document.createElement("li");
+      listItemProperties.innerText = prop;
+      
+      listProperties.append(listItemProperties);
+      
+    });
+
+    listCardTitle.innerText = item.name;
+    listCardSubTitle.innerText = item.brand;
+
+    listCard.append(listCardTitle, listCardSubTitle, listProperties);
+
+   });
   
   
-//    const listProperties = arr
-   
-//    .map((Propertie) => `<li>${Propertie.properties}</li>`)
-//    .split(",");
-  
-//    const listItemProperties  = listProperties.split(",");
-//   console.log('listItemProperties', listItemProperties);
+document.body.append(listCard);
+}
 
-//  console.log('listPropeties', listProperties)
-
-//   listCard.innerHTML = `
-//     ${arr.map((item) => `<li>
-//     <h2>${item.name}</h2>
-//     <h3>${item.brand}</h3>
-//      <ul>
-//      ${listItemProperties} 
-//      </ul>
-//     </li>`)
-//     .join("")}
-    
-   
-// `;
-
-
-// console.log('listCard', listCard.innerHTML);
-// document.body.append(listCard);
-// }
-
+renderList1(products);
 
 
 
 const renderList = ( arr) => {
 
-  const listCard = document.createElement("ul");
-
-  
-  
-    // const listProperties = arr.map(property => (`${property.properties}`).join(""));
-
-    //   listProperties.forEach((elem) => {
-    //       const listItemProperties = document.createElement("li");
-         
-    //       listItemProperties.innerText = (`${elem}`);
-      
-
-    //       console.log('listItemProperties', listItemProperties);
-    //       listCard.append(listItemProperties);
-    //     });
-
-
-   
-    // console.log('listItemProperties', listItemProperties);
-
-   
-  // console.log('listProperties', listProperties);
+  const listCard = document.createElement("div");
 
   listCard.innerHTML = `
-      ${arr.map((item) => `<li>
-      <h2>${item.name}</h2>
-      <h3>${item.brand}</h3>
-       <ul>
-       ${item.properties}
-       </ul>
-      </li>`)
+      ${arr.map((item) => {
+        return `
+        <div>
+          <h2>${item.name}</h2>
+          <h3>${item.brand}</h3>
+          <ul>
+            ${item.properties
+              .map((prop) => {
+              return `
+              <li>${prop}</li>
+              `
+              })
+            .join("")
+            }
+            </ul>
+        </div>`})
       .join("")}
 
     `;  
 
-
-
-
-  console.log('listCard', listCard.innerHTML);
   document.body.append(listCard);
 }
 
