@@ -38,6 +38,12 @@ const response = {
 
 console.log('totalPaging', totalPaging);
 
+const { data: [primaryObj] } = response;
+ const { is_active: isActive} = primaryObj;
+
+ console.log('primaryObj', primaryObj);
+ console.log('isActive', isActive);
+
 // task 2
 
 const user = {
@@ -56,4 +62,10 @@ const user = {
     console.log('userName', userName);
     console.log('userSurname', userSurname);
     console.log('parameters', parameters);
-    
+
+
+    // task 3
+
+    const max = (a, b) => {
+        return a > b ? a : b;
+      };
