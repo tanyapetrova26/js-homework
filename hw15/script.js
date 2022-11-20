@@ -37,3 +37,23 @@ const response = {
     } = response;
 
 console.log('totalPaging', totalPaging);
+
+// task 2
+
+const user = {
+    name: "gabriel",
+    surname: "brown",
+    age: 17,
+    height: 178,
+  };
+
+  const {
+    name: userName,
+    surname: userSurname,
+    ...parameters
+    } = user;
+
+    console.log('userName', userName);
+    console.log('userSurname', userSurname);
+    console.log('parameters', parameters);
+    
