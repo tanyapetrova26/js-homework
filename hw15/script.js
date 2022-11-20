@@ -76,3 +76,29 @@ const user = {
 
     const res = max(5, 8, 10, 15, 0, 2, 25);
     console.log('res', res);
+
+    
+    
+    // task 4
+
+
+    const createMessage = ({ author = "Guest", text, reciever, time = new Date() }) => {
+        return `From ${author} to ${reciever}: ${text} (${time.toLocaleDateString()})`;
+      };
+
+
+    //   const message = createMessage({
+    //     author: "Peter", 
+    //     text: "Hello", 
+    //     reciever: "Sam", 
+    //     time: new Date(),
+    //   });
+      
+      // после выполнения этого задания, функция должна коректно работать с таким аргументом
+      
+      const message = createMessage({
+        reciever: "John",
+        text: "Hi!",
+      });
+
+    console.log('message', message);
