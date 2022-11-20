@@ -39,7 +39,7 @@ const response = {
 console.log('totalPaging', totalPaging);
 
 const { data: [primaryObj] } = response;
- const { is_active: isActive} = primaryObj;
+ const { is_active: isActive } = primaryObj;
 
  console.log('primaryObj', primaryObj);
  console.log('isActive', isActive);
@@ -66,6 +66,13 @@ const user = {
 
     // task 3
 
-    const max = (a, b) => {
-        return a > b ? a : b;
-      };
+    // const max = (a, b) => {
+    //     return a > b ? a : b;
+    //   };
+
+      const max = (...numbers) => {
+        return numbers.reduce((a,b) => (a > b ? a : b), 0);
+      };  
+
+    const res = max(5, 8, 10, 15, 0, 2, 25);
+    console.log('res', res);
