@@ -29,7 +29,6 @@ const firstVisit = () => {
 const countVisits = () => {
   counter = localStorage.getItem("counter");
   
-
     if (counter == 1) {
       firstVisit();
       
