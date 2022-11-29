@@ -43,10 +43,10 @@ const getForm = (config) => {
         handleLabel.innerText = config.label;
   let handleInput= document.createElement("input");
 
-    handleInput.type = config.element;
-    handleInput.name = config.name;
-    handleInput.id = config.name;
-
+  handleInput.setAttribute("type", config.element);
+  handleInput.setAttribute("name", config.name);
+  handleInput.setAttribute("id", config.name);
+    
 
   handleForm.append(handleLabel, handleInput);
 
@@ -62,15 +62,24 @@ const getSelectForm = (selectObj) => {
   
   let handleSelectItem = document.createElement("select");
    
-      handleSelectItem.type = selectObj.element;
-      handleSelectItem.name = selectObj.name;
-      handleSelectItem.id= selectObj.name;
+      handleSelectItem.setAttribute("type", selectObj.element);
+      handleSelectItem.setAttribute("name", selectObj.name);
+      handleSelectItem.setAttribute("id", selectObj.name);
+     
     
-      for(let opt of selectObj.options) {
-        let newOption = new Option(`${opt.text}`, `${opt.value}`);
+      selectObj.options.forEach((opt) => {
+        const option = document.createElement("option");
+        option.innerText = opt.text;
+        option.setAttribute("value", opt.value);
+
+        handleSelectItem.append(option);
+      });
+
+      // for(let opt of selectObj.options) {
+      //   let newOption = new Option(`${opt.text}`, `${opt.value}`);
     
-        handleSelectItem.append(newOption);
-      }
+      //   handleSelectItem.append(newOption);
+      // }
   
     handleSelect.append(handleLabel, handleSelectItem);
     
@@ -79,23 +88,36 @@ const getSelectForm = (selectObj) => {
 
 
 const renderForm = (formConfig) => {
-    for (let obj in formConfig) {
-      let item = formConfig[obj];
 
-      if (item.element === "text") {
-        getForm(item);
+  formConfig.forEach(formElement => {
+
+    
+    if (formElement.element === "text") {
+          getForm(formElement);
+          
+        } else if (formElement.element === "select") {
+          getSelectForm(formElement);
+        }
+  });
+  // const renderForm = (formConfig) => {
+    // for (let obj in formConfig) {
+    //   let item = formConfig[obj];
+
+    //   if (item.element === "text") {
+    //     getForm(item);
         
-      } else {
-        getSelectForm(item);
-      }
-    };
+    //   } else if (item.element === "select") {
+    //     getSelectForm(item);
+    //   }
+    // };
 
     let btn = document.createElement("button");
 
-      btn.type = "submit";
+      btn.setAttribute("type", "submit");
       btn.innerText = "ПОДТВЕРДИТЬ"
 
       handleGetForm.append(btn);
+
   container.append(handleGetForm);
 };
 
