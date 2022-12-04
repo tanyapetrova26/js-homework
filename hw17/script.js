@@ -6,10 +6,12 @@ const timerShow = document.getElementById("timer");
 
 let intervalId = null;
 
+document.body.append(startBtn, stopBtn);
+
 const getIntervalTime = () => {
 
-// let timer = Number(prompt("Введите длительность таймера в секундах:"));
-let timer = 2;
+let timer = Number(prompt("Введите длительность таймера в секундах:"));
+// let timer = 2;
 
     if (!timer) {
         alert("Вы не ввели длительность таймера");
@@ -20,14 +22,7 @@ let timer = 2;
 
 let intervalTime = getIntervalTime();
 
-const endTimer = new Promise(function(resolve){
-    if (intervalTime < 0) {
-        console.log('intervalTime', intervalTime)
-        console.log("Timer end!");
-        resolve ();
-        console.log("Timer end!");
-    }
-});
+
 
 const currentTimer = () => {
     if (intervalTime < 0) {
@@ -54,15 +49,26 @@ const currentTimer = () => {
     
 }
 
-currentTimer();
+
+// const start = () => {
+//     return new Promise((resolve) => {
+//     currentTimer;
+    
+//         if (!intervalId) {
+//             intervalId = setInterval(currentTimer, 1000);
+//         }; 
+
+               
+//     });
+// };
 
 const start = () => {
-        currentTimer;
-    
-        if (!intervalId) {
-            intervalId = setInterval(currentTimer, 1000);
-        }; 
-   
+    currentTimer;
+
+    if (!intervalId) {
+        intervalId = setInterval(currentTimer, 1000);
+    }; 
+
 };
 
 
@@ -73,11 +79,10 @@ const stop = () => {
 
 
 
-//   sleep(30).then(() => {
+//   start(30).then(() => {
 //     console.log("Timer end!");
 //   });
 
 
 startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", stop);
-document.body.append(startBtn, stopBtn);
