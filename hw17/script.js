@@ -17,20 +17,13 @@ let timer = Number(prompt("Введите длительность таймер�
         alert("Вы не ввели длительность таймера");
         return;
     }
+        
         return timer;
 }  
 
-let intervalTime = getIntervalTime();
 
-
-
-const currentTimer = () => {
-    if (intervalTime < 0) {
-        return;
-    }
-
-    if (intervalTime >= 0) {
-        
+const renderTimer = () => {
+           
         const hours = (Math.floor(intervalTime / 60 / 60) % 24);
         const min = (Math.floor(intervalTime / 60) % 60) ;
         const sec = (Math.floor(intervalTime) % 60);
@@ -44,31 +37,31 @@ const currentTimer = () => {
             timerShow.innerHTML = time;
                 
     }
-    intervalTime --;
-    
-    
-}
 
-
-// const start = () => {
-//     return new Promise((resolve) => {
-//     currentTimer;
-    
-//         if (!intervalId) {
-//             intervalId = setInterval(currentTimer, 1000);
-//         }; 
-
-               
-//     });
-// };
+let intervalTime = getIntervalTime();
 
 const start = () => {
-    currentTimer;
+    
+    return new Promise((resolve) => {
+        renderTimer;   
 
-    if (!intervalId) {
-        intervalId = setInterval(currentTimer, 1000);
-    }; 
-
+        if (!intervalId) {
+            intervalId = setInterval(() => {
+                if (intervalTime >= 0) {
+                    renderTimer();
+                    intervalTime--;
+                } 
+                
+                if (intervalTime < 0) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                
+                    resolve();
+                }
+            }, 1000);
+        
+        }; 
+    });
 };
 
 
@@ -78,11 +71,12 @@ const stop = () => {
 };
 
 
+startBtn.addEventListener("click", () => {
+   
+    start().then(() => {
+      alert("Timer end!");
+    });
 
-//   start(30).then(() => {
-//     console.log("Timer end!");
-//   });
+});
 
-
-startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", stop);
