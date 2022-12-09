@@ -13,37 +13,35 @@ const renderNumberVisits = (num) => {
     document.body.append(numberVisits);
 };
 
-const firstVisit = () => {
-  localStorage.setItem("counter", 1);
-  let counter = localStorage.getItem("counter");
-  
-  renderGreeting();
-  counter++;
-  
-  localStorage.setItem("counter", counter);
-  
-}
-
-  
   
 const countVisits = () => {
-  counter = localStorage.getItem("counter");
   
-    if (counter == 1) {
-      firstVisit();
+  let counter = localStorage.getItem("counter");
+
+  if (counter) {
+      counter = localStorage.getItem("counter");
       
-    } else {
+          renderGreeting();
+          renderNumberVisits(counter);
+          counter++;
+          
+          localStorage.setItem("counter", counter);
+          counter = localStorage.getItem("counter");
+        
+      } else {
+        localStorage.setItem("counter", 1);
+        counter = localStorage.getItem("counter");
+        
         renderGreeting();
-        renderNumberVisits(counter);
         counter++;
         
         localStorage.setItem("counter", counter);
-        counter = localStorage.getItem("counter");
+        
         
       }
 }
 
 countVisits();
 
-
+// localStorage.clear();
 
