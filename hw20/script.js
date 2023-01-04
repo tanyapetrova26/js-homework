@@ -34,9 +34,7 @@ PublicService.prototype.getSum = function () {
     let sum = 0;
        
     this.services.forEach( ({ key, volume }) => {
-        
-        sum += this.tariffs[key] * volume;
-              
+       sum += this.tariffs[key] * volume;   
     })
   
     return sum;
