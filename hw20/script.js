@@ -15,18 +15,18 @@ PublicService.prototype.addMeterReadings = function (volume, serviceName) {
    
     if(!Object.keys(this.tariffs).includes(serviceName)){
         throw new Error(`Service "${serviceName}" is unavailble`);
-    }
+    };
 
     if(this.services.some(({ key }) => key === serviceName)) {
         throw new Error(`Service "${serviceName}" is already included`);
-    }
+    };
 
-    this.services.push({key: serviceName, volume})
+    this.services.push({key: serviceName, volume});
 }
 
 PublicService.prototype.deleteMeterReadings = function (serviceName)  {
     
-    this.services = this.services.filter(({ key }) => key !== serviceName) 
+    this.services = this.services.filter(({ key }) => key !== serviceName); 
     
 }
 
