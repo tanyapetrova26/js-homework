@@ -99,8 +99,8 @@ const charContainer = document.getElementById("charContainer");
 
 const handleErrors = async (response) => {
   if (!response.ok) {
-    let  error  = await response.json();
-        
+    let { error } = await response.json();
+      
     throw new Error(response.status);
   }
   return response;
@@ -133,7 +133,7 @@ const renderButtonFilm = async ({films}) => {
     const jsonResponses = responses.map((response) => response.json());
     const res = await Promise.all(jsonResponses);
 
-    await renderFilmsList(res);
+     renderFilmsList(res);
 
   }catch {
     alert("error");

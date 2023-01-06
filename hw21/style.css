@@ -1,0 +1,52 @@
+.form_cont {
+    max-width: 600px;
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    box-shadow: 
+               0 0  0 2px rgb(255,255,255),
+               0.3em 0.3em 1em rgba(0,0,0,0.3);
+    
+  }
+  
+  .form_input, .form_select {
+    box-sizing: border-box;
+    width: 150px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(19, 18, 18);
+    
+  }
+  
+  .select_option {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(19, 18, 18);
+
+  }
+/*   
+  .name_char {
+    font-size: 20px;
+    font-weight: 700;
+  } */
+  
+  .button {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: rgb(228, 228, 243);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: rgb(228, 228, 243);
+  
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(19, 18, 18);
+  }
+  
+  
