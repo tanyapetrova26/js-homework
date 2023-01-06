@@ -179,7 +179,7 @@ const getCharacter = async (id) => {
    
     const character = await response.json();
 
-    await renderCharacterCard(character)
+     renderCharacterCard(character)
 
   }catch (error) {
     if (+error.message === 404) {
