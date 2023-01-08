@@ -6,6 +6,7 @@ const container = document.getElementById("container");
 const btn = document.querySelector(".button");
 const preloader = document.getElementById("preloader");
 
+
 const showPreloader = (show) => {
 
   if(show){
@@ -16,12 +17,12 @@ const showPreloader = (show) => {
 
 }
 
-
 class Card {
  constructor({ name }) {
+
   this.card = document.createElement("div");
   this.name = name;
-  // this.render();
+  
  }
 
  render() {
@@ -235,8 +236,6 @@ const handleSubmit = async (event) => {
   //     showPreloader(false);
   //     const card = new CARD_MAP[type](item);
   //     card.show();
-
-
     
   // }catch (error) {
   //   alert(error.message);
