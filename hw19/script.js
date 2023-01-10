@@ -1,92 +1,3 @@
-// task 1
-
-const BASE_URL = "https://ipapi.co/json/";
-const BASE_URL_FLAG = "https://restcountries.com/v2/name";
-
-
-const renderFlag = async (flag) => {
-
-    let flagCont = document.createElement("div");
-
-    let imgFlag = document.createElement("img");
-    imgFlag.setAttribute("src", flag);
-    imgFlag.classList.add("imgFlag");
-
-    flagCont.append(imgFlag);
-    document.body.append(flagCont);
-    
-}
-
-const getCountryFlag = async ( { country_name: country }, url) => {
-  try {
-    const response = await fetch(`${url}/${country}`);
-
-        if (response.status === 200) {
-        const flag = await response.json();
-         
-         renderFlag(flag[0].flag);
-
-        } else {
-          throw new Error (`Error: ${response.status}`);
-        }
-  
-    } catch (error) {
-        let errText = error.message;
-              alert(errText);
-    }
-
-
-}
-
-
-const showCountry = async ( {country_name: country, country_capital: capital, currency} ) => {
-
-   
-    let card = document.createElement("div");
-    card.classList.add("card");
-
-    let countryText = document.createElement("h1");
-    countryText.innerText = country;
-    countryText.classList.add("country");
-
-    let capitalText = document.createElement("h2");
-    capitalText.innerText = capital;
-    capitalText.classList.add("capital");
-
-    let currencyText = document.createElement("p");
-    currencyText.innerText = currency;
-    currencyText.classList.add("currency");
-
-    card.append(countryText, capitalText, currencyText);
-    document.body.append(card);
-   
-
-}
-
-const getUserIpAdress = async (url) => {
-
-    try {
-      const response = await fetch(url);
-      if (response.status === 200) {
-      const place = await response.json();
-  
-      getCountryFlag(place, BASE_URL_FLAG);
-      
-      showCountry(place);
-
-      }else {
-        throw new Error (`Error: ${response.status}`);
-      }
-
-    } catch (error) {
-      let errText = error.message;
-            alert(errText);
-      }
-    
-  };
-
-  // getUserIpAdress(BASE_URL);
-
 
   // task 2
 
@@ -95,7 +6,17 @@ const BASE_URL_CHAR = "https://swapi.dev/api/people";
 const form = document.getElementById("findcharForm");
 const charIdInput = document.getElementById("charId");
 const charContainer = document.getElementById("charContainer");
+const preloader = document.getElementById("preloader");
 
+const showPreloader = (show) => {
+
+  if(show){
+    preloader.style.display = "block";
+  }else {
+    preloader.style.display = "none";
+  }
+
+}
 
 const handleErrors = async (response) => {
   if (!response.ok) {
@@ -125,6 +46,7 @@ const renderFilmsList = (arrFilms) => {
 
 
 const renderButtonFilm = async ({films}) => {
+ 
 
   const fetchFilms = films.map((film) => fetch(film));
 
@@ -133,12 +55,13 @@ const renderButtonFilm = async ({films}) => {
     const jsonResponses = responses.map((response) => response.json());
     const res = await Promise.all(jsonResponses);
 
+    showPreloader(false);
      renderFilmsList(res);
 
   }catch {
     alert("error");
   }
-
+  
 }
 
 const renderCharacterCard = (char) => {
@@ -157,13 +80,17 @@ const renderCharacterCard = (char) => {
 
   cardChar.append(nameChar, btnChar);
   charContainer.append(cardChar);
+  
 
   btnChar.addEventListener("click", (event) => {
-
+    
     if (!event.target.hasAttribute("isActive")) {
+      
       event.target.setAttribute("isActive", "");
-
+      
+      showPreloader(true);
       renderButtonFilm(char);
+      
     }else {
       event.target.removeAttribute("isActive");
       event.target.nextElementSibling.remove();
@@ -179,7 +106,8 @@ const getCharacter = async (id) => {
    
     const character = await response.json();
 
-     renderCharacterCard(character)
+     showPreloader(false);
+     renderCharacterCard(character);
 
   }catch (error) {
     if (+error.message === 404) {
@@ -198,7 +126,9 @@ const handleIdForm = (event) => {
     alert("Введите число");
   }else {
     
+    showPreloader(true);
     getCharacter(charId);
+    
     
   }
     charContainer.firstElementChild.remove();
